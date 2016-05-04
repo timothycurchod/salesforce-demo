@@ -3,6 +3,14 @@ angular.module('starter.controllers', ['forceng'])
         $scope.logout = function() {
             console.log('where is the logout function?');
             //force.logout();
+            force.discardToken();
+            force.login().then(
+                function () {
+                    $state.go('app.contactlist');
+                },
+                function(error) {
+                    alert("Login was not successful");
+            });
         };
     })
     .controller('ContactListCtrl', function ($scope, force) {
@@ -16,6 +24,7 @@ angular.module('starter.controllers', ['forceng'])
             });
     })
     .controller('ContactCtrl', function ($scope, $stateParams, force) {
+        console.log('stateParams',$stateParams);
         force.retrieve('contact', $stateParams.contactId, 'id,name,title,phone,mobilephone,email').then(
             function (contact) {
                 $scope.contact = contact;
