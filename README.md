@@ -3,7 +3,7 @@
 A starter project for Ionic and Salesforce.
 
 
-## Error retrieving contacts.
+## Error retrieving contacts
 
 ionic.bundle.js:24977 
 GET http://localhost:8100/services/data/v33.0/query?q=select+id,+name,+title+from+contact+limit+50 404 (Not Found)(anonymous function) 
@@ -33,6 +33,13 @@ ionic.bundle.js:26771 ReferenceError: $state is not defined
 Adding a user cases the following funciton.
 forceng.js:356 Cannot POST /services/data/v33.0/sobjects/contact/
 
+
+## Getting Accounts
+The request url used:
+http://localhost:8100/services/data/v33.0/query?q=select+id,+name+from+account+limit+50
+https://na1.salesforce.com/services/data/
+headers.Target-URL: "https://ap2.salesforce.com"
+This is the var that it should be using.
 
 
 

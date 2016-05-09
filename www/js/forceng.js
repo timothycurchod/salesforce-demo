@@ -18,7 +18,7 @@ angular.module('forceng', [])
 
     // The force.com API version to use.
     // To override default, pass apiVersion in init(props)
-      apiVersion = 'v33.0',
+      apiVersion = 'v36.0',
 
     // Keep track of OAuth data (access_token, refresh_token, and instance_url)
       oauth,
@@ -122,13 +122,16 @@ angular.module('forceng', [])
         headers = {},
 
         url = useProxy ? proxyURL : loginURL;
+        console.log('useProxy',useProxy);
+        console.log('proxyURL',proxyURL);
+        console.log('loginURL',loginURL);
 
       // dev friendly API: Remove trailing '/' if any so url + path concat always works
       if (url.slice(-1) === '/') {
         url = url.slice(0, -1);
       }
 
-      url = url + '/services/oauth2/token?' + toQueryString(params);
+      url = 'https://ap2.salesforce.com' + '/services/oauth2/token?' + toQueryString(params);
 
       if (!useProxy) {
         headers["Target-URL"] = loginURL;
@@ -331,6 +334,12 @@ angular.module('forceng', [])
         headers["Target-URL"] = oauth.instance_url;
       }
 
+      console.log('headers:', headers);
+      console.log('method:', method);
+      console.log('url:', url);
+      console.log('params:', obj.params);
+      console.log('data:', obj.data);
+
       $http({
         headers: headers,
         method: method,
@@ -370,7 +379,7 @@ angular.module('forceng', [])
     function query(soql) {
 
       return request({
-        path: '/services/data/' + apiVersion + '/query',
+        path: 'https://ap2.salesforce.com/services/data/' + apiVersion + '/query',
         params: {q: soql}
       });
 
@@ -386,7 +395,7 @@ angular.module('forceng', [])
     function retrieve(objectName, id, fields) {
 
       return request({
-        path: '/services/data/' + apiVersion + '/sobjects/' + objectName + '/' + id,
+        path: 'https://ap2.salesforce.com/services/data/' + apiVersion + '/sobjects/' + objectName + '/' + id,
         params: fields ? {fields: fields} : undefined
       });
 

@@ -1,5 +1,5 @@
 angular.module('starter.controllers', ['forceng'])
-    .controller('AppCtrl', function ($scope, force) {
+    .controller('AppCtrl', function ($scope, force, $state) {
         $scope.logout = function() {
             console.log('where is the logout function?');
             //force.logout();
