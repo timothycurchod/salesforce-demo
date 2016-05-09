@@ -5,6 +5,19 @@ A starter project for Ionic and Salesforce.
 
 ## Unit Tests
 
+This will run the tests once:
+```
+$ gulp test
+```
+
+This will watch the files in the test directory and re-run the tests on change:
+```
+$ gulp watch
+```
+
+
+### Testing Environment Setup
+```
 $ npm install karma karma-jasmine karma-phantomjs-launcher --save-dev
 $ npm install -g karma-cli
 $ npm install 
@@ -12,7 +25,8 @@ $ bower install angular-mocks --save-dev
 $ mkdir tests
 $ cd tests
 $ karma init
-
+```
+The config file is then in the karma.conf.js
 
 ## Error retrieving contacts
 
