@@ -3,6 +3,17 @@
 A starter project for Ionic and Salesforce.
 
 
+## Unit Tests
+
+$ npm install karma karma-jasmine karma-phantomjs-launcher --save-dev
+$ npm install -g karma-cli
+$ npm install 
+$ bower install angular-mocks --save-dev
+$ mkdir tests
+$ cd tests
+$ karma init
+
+
 ## Error retrieving contacts
 
 ionic.bundle.js:24977 
