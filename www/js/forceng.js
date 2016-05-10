@@ -377,7 +377,7 @@ angular.module('forceng', [])
      * @returns {*}
      */
     function query(soql) {
-
+      console.log('soql',soql);
       return request({
         path: 'https://ap2.salesforce.com/services/data/' + apiVersion + '/query',
         params: {q: soql}

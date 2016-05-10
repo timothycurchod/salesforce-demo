@@ -7,16 +7,33 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var karma = require('karma').server;
+var jsdoc = require('gulp-jsdoc3');
+var todo = require('gulp-todo');
 
 var paths = {
   sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass']);
-
 var testFiles = {
   testFiles: ['./test/**/*.js']
 };
+
+gulp.task('default', ['sass']);
+
+/** JSDoc task */
+gulp.task('docs', function (cb) {
+    var config = require('./conf.json');
+    gulp.src(['./www/js/**/*.js'], {read: false})
+        .pipe(jsdoc(config, cb));
+});
+
+/** generate a todo.md from your javascript files */
+gulp.task('todo', function() {
+    gulp.src('./www/js/**/*.js')
+        .pipe(todo())
+        .pipe(gulp.dest('./'));
+        // -> Will output a TODO.md with your todos 
+});
 
 /** Test task, run test once and exit.
 Trying '/karma.conf.js' as well as '/tests/my.conf.js', */

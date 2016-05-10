@@ -1,10 +1,20 @@
-// Ionic Starter App
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
+/** 
+ * @memberOf starter
+ * @class starter
+ * @description Main configuration module for the Salesforce Ionic Starter App.
+ *  * angular.module is a global place for creating, registering and retrieving Angular modules
+ * 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+ * the 2nd parameter is an array of 'requires'
+ * 'starter.controllers' is found in controllers.js 
+*/
 angular.module('starter', ['ionic', 'forceng', 'starter.controllers', 'config'])
-  .run(function ($ionicPlatform, $state, force, forcengOptions) {
+  .run(
+    /**
+    * @memberOf starter
+    * @class starter
+    * @description  Run function sets up cordova plugins and initializes forceng.
+    */
+  function ($ionicPlatform, $state, force, forcengOptions) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -35,7 +45,13 @@ angular.module('starter', ['ionic', 'forceng', 'starter.controllers', 'config'])
       }
     });
   })
-  .config(function ($stateProvider, $urlRouterProvider, baseURL) {
+  .config(
+    /**
+     * @memberOf starter
+     * @class starter
+     * @description Routes for the app.
+     */
+    function ($stateProvider, $urlRouterProvider, baseURL) {
     // baseURL (defined in the config.js module) is only there to support running the same app as a Mobile SDK
     // hybrid local and hybrid remote app (where the app is run from withing a Visualforce page). When running the
     // app inside a Visualforce page, you have to account for the path of the app's static resource. To accomplish
